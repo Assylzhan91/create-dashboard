@@ -7,10 +7,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 .container{
   padding-top: 30px;
+}
+
+.boolean-data{
+  background-color: red;
+  position: absolute;
+}
+
+a:hover{
+  text-decoration: none;
 }

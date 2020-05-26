@@ -1,6 +1,7 @@
 .header{
   display: flex;
   align-items: center;
+  position: relative;
   :global(.btn-outline-dark){
     margin-left: 50px;
     padding: 0;

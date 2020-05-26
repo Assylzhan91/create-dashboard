@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import style from './iconToggle.module.scss'
-import {useState} from "react";
+import classNames from 'classnames'
 
 class IconToggle extends Component {
     state = {
@@ -14,13 +14,18 @@ class IconToggle extends Component {
     }
 
     render() {
+
+        const styles = classNames(
+            {[style.icon]: true},
+            {'show': this.state.toggleView}
+            )
         return (
             <>
-                <div className={style.icon} onClick={this.toggleHandler}>
+                <div className={styles} onClick={this.toggleHandler}>
                     <span className={style.off}>off</span>
                     <span className={style.on}>on</span>
                 </div>
-                <p className='some'>{String(this.state.toggleView)}</p>
+                <p className='boolean-data'>{String(this.state.toggleView)}</p>
             </>
     )
   }

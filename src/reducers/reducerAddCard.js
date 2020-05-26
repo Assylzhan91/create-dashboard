@@ -1,3 +1,7 @@
+import {
+    ADD_A_CARD,
+    CHANGE_VALUE
+} from "../actions/actionTypes"
 const initialState = {
     list: [
         {
@@ -18,16 +22,19 @@ const initialState = {
         },
     ],
     heading: '',
-    text: '',
+    text: ''
 }
 
 export const reducerAddCard = (state = initialState, action) =>{
     switch (action.type) {
-        case "ADD_A_CARD":
+        case ADD_A_CARD:
             console.log(state.list)
             return {
-                ...state,
-
+               list: [...state.list]
+            }
+        case CHANGE_VALUE:
+            return {
+                heading: action.payload
             }
         default:
             return state

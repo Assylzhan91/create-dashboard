@@ -43,7 +43,6 @@
   box-sizing: border-box;
 }
 
-ul, h1, h2, h3{
+ul, h1, h2, h3, a{
   list-style: none;
-
 }

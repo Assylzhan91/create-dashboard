@@ -1,20 +1,13 @@
 import React, { Component } from 'react'
-import  { NavLink } from 'react-router-dom'
-
-import  Cart from '../Cart'
-
+import  Header from '../Header'
+import  Cards from '../Cards'
 
 class Main extends Component {
-
   render() {
-
     return (
-      <div>
-          <div>
-              <NavLink to='/add-cart'>Add a cart</NavLink>
-          </div>
-            <h1>Main</h1>
-          <Cart/>
+        <div className='main'>
+          <Header/>
+          <Cards/>
       </div>
     )
   }

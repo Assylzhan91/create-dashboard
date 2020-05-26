@@ -7,11 +7,11 @@ export default function PagesRouter() {
     return (
         <div className="pages">
             <Switch>
-                 <Route path="/" exact>
-                     <Main/>
+                <Route path="/" exact>
+                    <Main/>
                 </Route>
                 <Route path="/add-cart">
-                     <AddCart/>
+                    <AddCart/>
                 </Route>
             </Switch>
         </div>

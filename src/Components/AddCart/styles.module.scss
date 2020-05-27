@@ -15,7 +15,11 @@
     margin-right: 20px;
   }
 
-  :global(.btn-outline-secondary){
+  :global(.btn-outline-success){
+    padding: 6px 12px;
+    &:hover{
+      cursor: not-allowed;
+    }
   }
 
 }

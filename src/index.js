@@ -6,6 +6,7 @@ import {createStore} from 'redux';
 import {rootReducer} from '../src/reducers/rootReducer';
 import App from './App'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'antd/dist/antd.css'
 
 import './index.css'
 import './styles/variable.scss'
@@ -16,13 +17,11 @@ const store = createStore(rootReducer)
 
 const render = (Component) =>{
     ReactDOM.render(
-        <React.StrictMode>
-            <Router>
-                <Provider store={store}>
-                    <Component />
-                </Provider>
-            </Router>
-        </React.StrictMode>,
+        <Router>
+            <Provider store={store}>
+                <Component />
+            </Provider>
+        </Router>,
         document.getElementById('root')
     )
 }

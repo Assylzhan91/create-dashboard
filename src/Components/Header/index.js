@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom"
 import styles from "./styles.module.scss"
 import IconToggle from "../IconToggle"
 
+
 const Header = props => {
 
   return (
@@ -15,5 +16,7 @@ const Header = props => {
     </Alert>
   )
 }
+
+
 
 export default Header

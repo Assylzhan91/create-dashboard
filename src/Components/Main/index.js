@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
-import  Header from '../Header'
-import  Cards from '../Cards'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
+import  Cards from '../Cards'
+import  Header from '../Header'
 
 class Main extends Component {
   render() {
     return (
         <div className='main'>
           <Header/>
-          <Cards list={this.props.list}/>
+            <DndProvider backend={HTML5Backend}>
+                <Cards list={this.props.list}/>
+            </DndProvider>
       </div>
     )
   }

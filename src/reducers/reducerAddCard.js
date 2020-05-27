@@ -1,40 +1,49 @@
 import {
     ADD_A_CARD,
-    CHANGE_VALUE
+    TEXT_AREA_CHANGE,
+    INPUT_CHANGE
 } from "../actions/actionTypes"
 const initialState = {
     list: [
         {
             id: 1,
-            heading: "HEADING",
-            text: "Consectetur adipisicing elit. Ad aliquam amet deleniti dolor dolorem doloremque ducimus eaque fuga fugiat impedit incidunt inventore iste magnam nemo, quod sint, suscipit tempora veniam!",
+            heading: 'Heading',
+            text: 'Beatae exercitationem laboriosam, minus molestiae nobis provident repudiandae! Aspernatur beatae dolore enim esse iste laborum, magni perspiciatis recusandae veritatis? Accusantium, impedit iure?'
         },
-
         {
             id: 2,
-            heading: "HEADING",
-            text: "Consectetur adipisicing elit. Ad aliquam amet deleniti dolor dolorem doloremque ducimus eaque fuga fugiat impedit incidunt inventore iste magnam nemo, quod sint, suscipit tempora veniam!",
-        },
-
-        {   id: 3,
-            heading: "HEADING",
-            text: "Consectetur adipisicing elit. Ad aliquam amet deleniti dolor dolorem doloremque ducimus eaque fuga fugiat impedit incidunt inventore iste magnam nemo, quod sint, suscipit tempora veniam!",
-        },
+            heading: 'Heading',
+            text: 'Beatae exercitationem laboriosam, minus molestiae nobis provident repudiandae! Aspernatur beatae dolore enim esse iste laborum, magni perspiciatis recusandae veritatis? Accusantium, impedit iure?'
+        }
     ],
-    heading: '',
-    text: ''
+    text: '',
+    value: '',
+    isValid: false
 }
 
 export const reducerAddCard = (state = initialState, action) =>{
     switch (action.type) {
         case ADD_A_CARD:
-            console.log(state.list)
+            let lastItem =  state.list.length === 0
+                ? 1
+                : state.list.slice(-1).pop().id + 1
+
             return {
-               list: [...state.list]
+               ...state,
+                list: [...state.list, { id: lastItem, heading: action.value, text: action.text}],
+                text: '',
+                value: ''
             }
-        case CHANGE_VALUE:
+        case INPUT_CHANGE:
             return {
-                heading: action.payload
+                ...state,
+                value: action.payload,
+                isValid: action.isValid
+            }
+        case TEXT_AREA_CHANGE:
+            return {
+                ...state,
+                text: action.payload
             }
         default:
             return state

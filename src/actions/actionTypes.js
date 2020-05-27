@@ -1,3 +1,6 @@
 export const  ADD_A_CARD = 'ADD_A_CARD'
 
-export const  CHANGE_VALUE = 'CHANGE_VALUE'
+export const  TEXT_AREA_CHANGE = 'TEXT_AREA_CHANGE'
+
+
+export const  INPUT_CHANGE = 'INPUT_CHANGE'

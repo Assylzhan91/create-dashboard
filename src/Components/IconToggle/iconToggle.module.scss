@@ -1,43 +1,39 @@
 @import "../../styles/variable";
 .icon{
-  background-color: rgb(230, 230, 230);
+  background-color: #e6e6e6;
   margin-left: auto;
   width: 100px;
   height: $height-icon;
-  border: 1px solid;
+  border: 1px solid #b0b0b2;
   border-radius: 4px;
   overflow: hidden;
   display: flex;
   align-items: center;
   cursor: pointer;
+ :global(.ant-switch){
+   border-radius: 0;
+   width: 100%;
+   display: flex;
+   > span{
+     background-color: #33b5e5 !important;
+     margin-right: 0;
+     width: 50%;
+     margin-left: auto;
+   }
+ }
 
-  span{
-    color: #fff;
-    font-size: 14px;
-    width: 50%;
-    text-align: center;
-    line-height: 20px;
-    font-weight: 500;
-    text-transform: uppercase;
+  :global(.ant-switch-checked){
+    background-color: #33b5e5;
+    :global(.ant-switch-inner) {
+      background-color: #f00 !important;
+      margin-right: auto;
+      margin-left: 0;
+    }
   }
 
-}
 
-
-.on{
-  background-color: #33b5e5;
-  margin-left: auto;
-}
-
-span.off{
-  background-color: #f33636;
-  margin-right: auto;
-  opacity: 0;
-}
-
-
-:global(.show){
-  span.off{
-    opacity: 1;
+  :global(.ant-switch-handle){
+    display: none;
   }
 }
+

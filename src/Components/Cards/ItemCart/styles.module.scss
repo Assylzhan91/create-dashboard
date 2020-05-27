@@ -5,14 +5,26 @@
   margin-left: 1%;
   margin-right: 1%;
   margin-bottom: 2%;
+
   &:global(.card){
     border-radius: 1rem;
+    cursor: pointer;
+  }
+
+  :global(.card-body){
+    display: flex;
+    flex-direction: column;
+
+    :global(.btn-primary){
+      margin-top: auto;
+    }
   }
 
   :global(.h5){
     text-align: center;
     margin-bottom: 20px;
     font-size: 2rem;
+    text-transform: uppercase;
   }
 
   :global(.card-text){

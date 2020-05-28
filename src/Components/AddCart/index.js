@@ -18,7 +18,6 @@ export const AddCard = (props)=> {
 
     const isGreatFourCharacter = ()=>{
         if (!props.values.isValid && props.values.value.length) {
-            console.log(!props.values.isValid)
             return (
                 <Form.Text className="text-danger">
                     Please, enter 4 or greater character

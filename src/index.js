@@ -16,7 +16,7 @@ import * as serviceWorker from './serviceWorker'
 const enhancer = compose(
     persistState(),
 )
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, enhancer)
 
 const render = (Component) =>{
     ReactDOM.render(

@@ -16,11 +16,10 @@ export function  addCard(value, text){
 
 
 export function  inputChange(value){
-
     return {
         type: INPUT_CHANGE,
         payload: value,
-        isValid: value.length <= 4 && value.length
+        isValid: value.length >= 4 && !!value.length
     }
 
 }
@@ -32,3 +31,4 @@ export function  textAreaChange(text){
     }
 
 }
+

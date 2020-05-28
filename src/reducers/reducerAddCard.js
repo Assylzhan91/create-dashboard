@@ -8,12 +8,12 @@ const initialState = {
         {
             id: 1,
             heading: 'Heading',
-            text: 'Beatae exercitationem laboriosam, minus molestiae nobis provident repudiandae! Aspernatur beatae dolore enim esse iste laborum, magni perspiciatis recusandae veritatis? Accusantium, impedit iure?'
+            text: 'Beatae exercitationem laboriosam, minus molestiae nobis provident repudiandae! Aspernatur beatae dolore enim esse iste laborum, magni perspiciatis recusandae veritatis? Accusantium, impedit iure laboriosam, minus molestiae nobis provident repudiandae! Aspernatur beatae dolore enim esse iste laborum, mag?'
         },
         {
             id: 2,
             heading: 'Heading',
-            text: 'Beatae exercitationem laboriosam, minus molestiae nobis provident repudiandae! Aspernatur beatae dolore enim esse iste laborum, magni perspiciatis recusandae veritatis? Accusantium, impedit iure?'
+            text: 'Beatae laboriosam, minus molestiae nobis provident repudiandae! Aspernatur beatae dolore enim esse iste laborum, mag exercitationem laboriosam, minus molestiae nobis provident repudiandae! Aspernatur beatae dolore enim esse iste laborum, magni perspiciatis recusandae veritatis? Accusantium, impedit iure?'
         }
     ],
     text: '',

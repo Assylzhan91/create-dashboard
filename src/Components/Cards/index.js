@@ -1,27 +1,35 @@
-import React from 'react'
+import React, {Component} from 'react'
 import ItemCart from './ItemCart'
 import styles from "./styles.module.scss"
 import {connect} from 'react-redux'
+import {getListItem} from '../../selectors/selectors'
 
-export  const  Cards = ({list}) =>{
+export class  Cards extends Component {
 
-    return (
-      <div>
-        <ul className={styles.list}>
-            {
-                list.map(item => (
-                    <ItemCart key={item.id} itemProps={item} />
-                ))
-            }
-        </ul>
-      </div>
-    )
+    render() {
+        const {listItem} = this.props
+        console.log(listItem)
+        return (
+            <div>
+
+                <ul className={styles.list}>
+                    {
+                        listItem.map(item => (
+                            <ItemCart key={item.id} itemProps={item} />
+                        ))
+                    }
+                </ul>
+            </div>
+        )
+    }
 }
 
-const mapStateToProps = ({reducerAddCard})=>{
+const mapStateToProps = (state)=>{
   return {
-      list: reducerAddCard.list
+      listItem: getListItem(state)
   }
 }
+
+
 
 export  default connect(mapStateToProps)(Cards)

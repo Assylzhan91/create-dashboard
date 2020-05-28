@@ -15,7 +15,18 @@ export const AddCard = (props)=> {
         props.addCard(props.values.value, props.values.text)
         props.history.goBack()
     }
-    const isFillAllFields = !props.values.isValid && !!props.values.text.length
+
+    const isGreatFourCharacter = ()=>{
+        if (!props.values.isValid && props.values.value.length) {
+            console.log(!props.values.isValid)
+            return (
+                <Form.Text className="text-danger">
+                    Please, enter 4 or greater character
+                </Form.Text>
+            )
+        }
+    }
+    const isFillAllFields = props.values.isValid && !!props.values.text.length
     return (
         <div className={styles.addCart}>
             <h1 className='text-center'>Add a card</h1>
@@ -26,10 +37,7 @@ export const AddCard = (props)=> {
                                   value={props.values.value}
                                   onChange={(e)=>props.inputChange(e.target.value.trim())} />
                     {
-                        props.values.isValid &&
-                        <Form.Text className="text-danger">
-                            Please, enter 4 or greater character
-                        </Form.Text>
+                        isGreatFourCharacter()
                     }
 
                 </Form.Group>

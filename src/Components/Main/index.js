@@ -6,7 +6,8 @@ import  Cards from '../Cards'
 import  Header from '../Header'
 
 class Main extends Component {
-  render() {
+
+    render() {
     return (
         <div className='main'>
           <Header/>

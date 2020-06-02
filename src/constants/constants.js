@@ -1,0 +1,1 @@
+export const  COUNT_LIMIT_INPUT = 5

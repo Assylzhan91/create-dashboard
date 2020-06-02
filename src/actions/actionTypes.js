@@ -4,3 +4,5 @@ export const  TEXT_AREA_CHANGE = 'TEXT_AREA_CHANGE'
 
 
 export const  INPUT_CHANGE = 'INPUT_CHANGE'
+
+export const  CLEAR_FIELDS = 'CLEAR_FIELDS'

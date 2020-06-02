@@ -2,30 +2,34 @@ import React from 'react'
 import {NavLink} from "react-router-dom";
 
 import {Button, Form} from "react-bootstrap";
-import styles from "./styles.module.scss"
 import {connect} from 'react-redux'
-import {inputChange,textAreaChange, addCard} from "../../actions/actions";
+import {inputChange,textAreaChange, addCard, clearFields} from "../../actions/actions";
 import {getValues} from "../../selectors/selectors";
+import styles from "./styles.module.scss"
+import {COUNT_LIMIT_INPUT} from "../../constants/constants"
 import {withRouter} from "react-router-dom";
 
 export const AddCard = (props)=> {
-
+    const { values, addCard,
+            history, clearFields,
+            inputChange, textAreaChange
+    } = props
     const submitHandler = (e)=> {
         e.preventDefault()
-        props.addCard(props.values.value, props.values.text)
-        props.history.goBack()
+        addCard(values.value, values.text)
+        history.goBack()
     }
 
     const isGreatFourCharacter = ()=>{
-        if (!props.values.isValid && props.values.value.length) {
+        if (!values.isValid && values.value.length) {
             return (
                 <Form.Text className="text-danger">
-                    Please, enter 4 or greater character
+                    Please, enter {COUNT_LIMIT_INPUT} or greater character
                 </Form.Text>
             )
         }
     }
-    const isFillAllFields = props.values.isValid && !!props.values.text.length
+    const isFillAllFields = values.isValid && !!values.text.length
     return (
         <div className={styles.addCart}>
             <h1 className='text-center'>Add a card</h1>
@@ -33,8 +37,8 @@ export const AddCard = (props)=> {
                 <Form.Group controlId="formBasicEmail">
                     <Form.Control type="text"
                                   placeholder="Please, enter a heading"
-                                  value={props.values.value}
-                                  onChange={(e)=>props.inputChange(e.target.value.trim())} />
+                                  value={values.value}
+                                  onChange={(e)=>inputChange(e.target.value.trim())} />
                     {
                         isGreatFourCharacter()
                     }
@@ -44,9 +48,9 @@ export const AddCard = (props)=> {
                 <Form.Group controlId="text">
                     <Form.Control as="textarea"
                                   rows="3"
-                                  onChange={(e)=>props.textAreaChange(e.target.value)}
+                                  onChange={(e)=>textAreaChange(e.target.value)}
                                   placeholder="Enter text"
-                                  value={props.values.text}
+                                  value={values.text}
                     />
                 </Form.Group>
                 <Button variant="outline-success"
@@ -55,7 +59,7 @@ export const AddCard = (props)=> {
                 >
                    Add to list
                 </Button>
-                <Button variant="outline-secondary">
+                <Button variant="outline-secondary" onClick={()=>clearFields(values.value, values.text)}>
                     <NavLink to='/'>Cancel</NavLink>
                 </Button>
             </Form>
@@ -73,7 +77,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         inputChange: (value) => dispatch(inputChange(value)),
         textAreaChange: (text) => dispatch(textAreaChange(text)),
-        addCard: (value, text) => dispatch(addCard( value, text))
+        addCard: (value, text) => dispatch(addCard(value, text)),
+        clearFields: (value, text)=> dispatch(clearFields(value, text))
     }
 }
 

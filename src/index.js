@@ -10,7 +10,6 @@ import 'antd/dist/antd.css'
 import persistState from 'redux-localstorage'
 
 import './index.css'
-import './styles/variable.scss'
 import * as serviceWorker from './serviceWorker'
 
 const enhancer = compose(

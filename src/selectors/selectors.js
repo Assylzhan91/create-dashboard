@@ -5,8 +5,3 @@ export const getValues = state => {
 export const getListItem = state => {
     return state.reducerAddCard.list
 }
-
-export const saveLocalStorage = state => {
-    console.log(state)
-    return state.reducerAddCard.list
-}

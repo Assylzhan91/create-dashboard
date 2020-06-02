@@ -1,8 +1,10 @@
 import {
     ADD_A_CARD,
     TEXT_AREA_CHANGE,
-    INPUT_CHANGE
+    INPUT_CHANGE,
+    CLEAR_FIELDS
 } from "../actions/actionTypes"
+
 const initialState = {
     list: [
         {
@@ -32,7 +34,8 @@ export const reducerAddCard = (state = initialState, action) =>{
                ...state,
                 list: [...state.list, { id: lastItem, heading: action.value, text: action.text}],
                 text: '',
-                value: ''
+                value: '',
+                isValid: false
             }
         case INPUT_CHANGE:
             return {
@@ -44,6 +47,13 @@ export const reducerAddCard = (state = initialState, action) =>{
             return {
                 ...state,
                 text: action.payload
+            }
+        case CLEAR_FIELDS:
+            return {
+                ...state,
+                text: '',
+                value: '',
+                isValid: false
             }
         default:
             return state
